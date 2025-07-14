@@ -63,10 +63,17 @@ def is_abecedarian(word):
             index += 1
     return True
 
-        
+def filter_abecedarian(file):
+    for line in file:
+        word = line.strip()
+        status = is_abecedarian(word)
+        if status: 
+            print(word)
+
 
 
 
 #filter_20char(fin)
 #print_no_e(fin)
 #forbidden_letters(fin)
+#filter_abecedarian(fin)
