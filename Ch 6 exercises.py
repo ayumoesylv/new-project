@@ -9,6 +9,26 @@ PLeae write the description of function,
 input paramets
 output:
 '''
+
+def sample_func_doc(p1, p2):
+    """
+    Sample description for a function
+
+    Args:
+        p1 (float): the first parameter.
+        p2 (string): the 2nd parameter.
+
+    Returns:
+        float: the return of function.
+
+    Raises:
+        ValueError: if p1 is string
+    """
+
+    r = p1 + float(p2) # we add two inputs 
+
+    return r # we return the addtion result
+
 def hypotenuse(leg1, leg2):
     leg1 **= 2
     leg2 **= 2
