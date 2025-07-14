@@ -1,5 +1,14 @@
+'''
+' PLease write the module desciption
+' Author
+' Date
+'''
 import math
-
+'''
+PLeae write the description of function,
+input paramets
+output:
+'''
 def hypotenuse(leg1, leg2):
     leg1 **= 2
     leg2 **= 2
