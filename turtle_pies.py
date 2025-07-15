@@ -34,4 +34,4 @@ def pie(t, n, l):
         t.fd(l)
         t.lt(180)
 
-pie(bob, 7, 100)
+pie(bob, 9, 100)

@@ -65,7 +65,9 @@ def flower(t, r, arc_angle, petal_ang):
         t.lt(180 - arc_angle)
         arc(arc_angle, t, r)
         t.lt(petal_ang)
-    
-flower(bob, 50, 90, 140)
+
+
+
+#flower(bob, 50, 90, 140)
 
 turtle.mainloop()
