@@ -1,5 +1,5 @@
 import string
-fin = open('test.txt')
+fin = open('words.txt')
 gutefin = open('gutenberg.txt')
 
 def change_file(file):
@@ -19,15 +19,17 @@ def change_file(file):
     raises:
         None
     """
+    wordlist = []
     for line in file:
         word = line.strip()
         word = change_word(word)
+        wordlist.append(word)
         # temp = ''
         # for letter in word:
         #     if (letter not in string.whitespace) and (letter not in string.punctuation):
         #         temp += letter 
         # temp = temp.lower()
-    return word
+    return wordlist
 
 def change_word(word):
     """
@@ -75,12 +77,13 @@ def count_words(file):
                 record[standard] += 1
     return record
 
-def get_most_frequent(record):
+def get_most_frequent(record, file):
     """
     Prints out the 20 most frequently used words in a dictionary
 
     params
         record (dict): dictionary matching words - the keys - to frequency - values-
+        file (file object): list of words
 
     returns
         None
@@ -93,10 +96,15 @@ def get_most_frequent(record):
     # print top 20 in a loop 
     
     new_record = dict()
+    wordlist = change_file(file)
+    not_in_wordlist = []
+    print(len(wordlist))
+
     for entry in record:
-        #key = entry
         val = record[entry]
         new_record[val] = entry
+        if entry not in wordlist:
+            not_in_wordlist.append(entry)
     key_list = sorted(new_record)
     i = len(key_list) - 1
     stop = i - 19
@@ -105,8 +113,11 @@ def get_most_frequent(record):
         print(temp, new_record[temp])
         i -= 1
 
+    print(len(not_in_wordlist))
+
 
 #change_file(fin)
 testdict = count_words(gutefin)
-#testdict = {'hi': 1, 'bye': 2, 'cry': 3}
-get_most_frequent(testdict)
+wordlist = ['abacada', 'lalalaa', 'oopsies']
+get_most_frequent(testdict, fin)
+
