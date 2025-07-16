@@ -1,6 +1,6 @@
 import turtle 
 import math
-bob = turtle.Turtle()
+# bob = turtle.Turtle()
     
 def polyline(t, length, n, angle):
     """
@@ -22,8 +22,8 @@ def polygon(t, length, n):
 
 def circle(t, r):
     circumf = 2*r*math.pi
-    length = circumf / 1000
-    polygon(t, length, 1000)
+    length = circumf / 70
+    polygon(t, length, 70)
 
 def arc(angle, t, r):
     """
@@ -66,8 +66,9 @@ def flower(t, r, arc_angle, petal_ang):
         arc(arc_angle, t, r)
         t.lt(petal_ang)
 
-
+def test():
+    print('success!')
 
 #flower(bob, 50, 90, 140)
 
-turtle.mainloop()
+# turtle.mainloop()

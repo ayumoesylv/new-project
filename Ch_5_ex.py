@@ -71,3 +71,49 @@ def compare(x, y):
 
 print(compare(4, 3))
 
+def koch(t, length):
+    """
+    draws a koch curve
+
+    params:
+        t (turtle object): turtle object 
+        length (int): length of line to be drawn
+    
+    returns:
+        None
+    
+    Raises:
+        None
+    """
+    if length <= 3:
+        t.fd(length)
+    else: 
+        koch(t, length / 3)
+        t.lt(60)
+        koch(t, length / 3)
+        t.rt(120)
+        koch(t, length / 3)
+        t.lt(60)
+        koch(t, length / 3)
+
+def snowflake(t):
+    """
+    Draws a snowflake using three koch curves
+
+    params:
+        t (turtle object): turtle object
+    
+    returns:
+        None
+    
+    Raises:
+        None
+    """
+    angle = 120
+    for i in range(3): 
+        koch(t, 30)
+        t.rt(120)
+
+snowflake(bob)
+
+turtle.mainloop()

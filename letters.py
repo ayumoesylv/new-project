@@ -14,3 +14,4 @@ def draw_b():
 def draw_c():
     pass
 
+turtle.mainloop()
