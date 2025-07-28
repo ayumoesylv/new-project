@@ -72,7 +72,7 @@ def test_square_root():
     """
     print(add_padding('a', 4), add_padding('mysqrt(a)', 19), add_padding('math.sqrt(a)', 19), 'diff', sep='')
     print(add_padding('-', 4), add_padding('---------', 19), add_padding('------------', 19), '----', sep='')
-    for i in range(9): # i -> [0, 1]
+    for i in range(9): 
         num = float(i+1) 
         my_val = float(mysqrt(i+1, 1))
         mod_val = math.sqrt(i+1)
@@ -106,7 +106,7 @@ def eval_loop():
     return result
 
 
-# EXERCISE 7.3 - FINISHED; UNCHECKED
+# EXERCISE 7.3 - FINISHED; CHECKED
 def estimate_pi():
     """
     Returns an estimate of the value of 1/pi
@@ -117,6 +117,9 @@ def estimate_pi():
         estim (float): estimate of 1/pi
     raises
         None
+    Notes from checked work
+        Was supposed to return pi, not 1/pi
+        Otherwise, written mostly the same way as the solution
     """
     summ = 0.0
     epsy = 1e-15
@@ -134,6 +137,8 @@ def estimate_pi():
     estim = summ * ((2 * math.sqrt(2)) / 9801)
     print(estim, 1/math.pi, abs(estim - 1/math.pi))
     return estim
+
+
 
 
 
