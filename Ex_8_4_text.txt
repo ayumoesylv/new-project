@@ -1,0 +1,71 @@
+def any_lowercase1(s):
+    for c in s:
+        if c.islower():
+            return True
+        else:
+            return False
+
+Description: any_lowercase1 takes a string 
+and iterates through each character. It checks
+if each character is lower case, and returns true 
+if it is. However, if the character is not lower case
+it returns false, which may mean that it will exit 
+the traversal before any other lower case letters
+are found, which makes this function flawed.
+
+def any_lowercase2(s):
+    for c in s:
+        if 'c'.islower():
+            return 'True'
+        else:
+            return 'False'
+
+Description: any_lowercase2 takes a string 
+and iterates through each character. However, the 
+conditional checks if the string 'c' is lower case,
+which will always be the case. Therefore, True will
+always be the result, which makes this function flawed.
+
+def any_lowercase3(s):
+    for c in s:
+        flag = c.islower()
+    return flag
+
+Description: any_lowercase3 takes a string and 
+iterates through each character. In each iteration,
+a variable 'flag' is updated with whether the current
+character is lower case or not. At the end of the loop,
+the latest value of flag will be returned. However, 
+this means that we are using the final value of flag
+to represent the whole string, which is flawed.
+
+def any_lowercase4(s):
+    flag = False
+    for c in s:
+        flag = flag or c.islower()
+    return flag
+
+Description: any_lowercase4 takes a string 
+and initializes a 'flag' variable with False. 
+Then it iterates through each character in s. 
+flag is updated with a boolean value derived from 
+an or expression, where if flag is False and 
+the current character is lowercase, flag will 
+be updated to True. Then, whether or not c.islower()
+is False or True in the future, flag will always be 
+True. If there are no lower cases, then flag 
+will always remain False. Thus, this function works.
+
+def any_lowercase5(s):
+    for c in s:
+        if not c.islower():
+            return False
+    return True
+
+Description: any_lowercase5 takes a string 
+and iterates through each character. If any
+character is determined to not be lowercase,
+False will be returned immediately. This function
+actually checks if the whole string is lowercase,
+which makes it flawed, as that is not the 
+intended goal of the function.
