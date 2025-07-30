@@ -1,4 +1,5 @@
 import logging
+import random
 logger = logging.getLogger(__name__)
 
 # SECTION 10.7 DEMO CODE
@@ -136,7 +137,7 @@ def is_anagram(t1, t2):
     
     return False
 
-# EXERCISE 10.7 - UNFINISHED; UNCHECKED
+# EXERCISE 10.7 - FINISHED; UNCHECKED
 def has_duplicates(t):
     """
     returns True if there are duplicate items, and does not modify the og list
@@ -157,7 +158,16 @@ def has_duplicates(t):
     return False
 
 # EXERCISE 10.8 - UNFINISHED; UNCHECKED
-
+def birthday_paradox():
+    """
+    Returns experimental probability that two people in a class of 23 have the same birthday. 
+    """
+    count = 0
+    for i in range(3): 
+        birthdays = [random.randint(1, 365) for q in range(23)]
+        if has_duplicates(birthdays):
+            count += 1
+    return count / 3
 
 # EXERCISE 10.9 - UNFINISHED; UNCHECKED
 # EXERCISE 10.10 - UNFINISHED; UNCHECKED
@@ -190,3 +200,5 @@ is_anagram('hello', 'jsbin') # Eoc ex 10.6
 dupstat = has_duplicates([1, 5, 3, 4]) # Eoc ex 10.7
 print(dupstat)
 
+chance = birthday_paradox()
+print(chance)
