@@ -157,20 +157,93 @@ def has_duplicates(t):
         past = i
     return False
 
-# EXERCISE 10.8 - UNFINISHED; UNCHECKED
+# EXERCISE 10.8 - FINISHED; UNCHECKED
 def birthday_paradox():
     """
     Returns experimental probability that two people in a class of 23 have the same birthday. 
     """
     count = 0
-    for i in range(3): 
+    n = 10
+    for i in range(n): 
         birthdays = [random.randint(1, 365) for q in range(23)]
         if has_duplicates(birthdays):
             count += 1
-    return count / 3
+    return count / n
 
 # EXERCISE 10.9 - UNFINISHED; UNCHECKED
+def wordlist_v1(file):
+    """
+    Returns a list where each element is a word from words.txt. Uses append
+
+    params: 
+        file (File object): word file
+    returns:
+        words (list): list of words from file
+    raises:
+        None
+    """
+    words = []
+    for line in file:
+        elem = line.strip()
+        words.append(elem)
+    return words
+
+def wordlist_v2(file):
+    """
+    Returns a list where each element is a word from words.txt. Uses idiom t = t + [x]
+
+    params: 
+        file (File object): word file
+    returns:
+        words (list): list of words from file
+    raises:
+        None    
+    """
+    words = []
+    for line in file: 
+        elem = line.strip()
+        words = words + [elem]
+    return words
+
 # EXERCISE 10.10 - UNFINISHED; UNCHECKED
+def in_bisect(t, v):
+    """
+    Takes a sorted list and a target value and returns True if the word is in the list and False if not using a bisect search
+    
+    params
+        t (list): sorted list
+        v (str): target value in list
+    returns
+        (bool): True if word in list and False otherwise
+    raises
+        When type(v) == str and 
+    """
+    # Find the index of halfway through list (halfindex)
+    # Compare v to word at halfindex 
+    # if v comes before, assign wordlist to splice [0: halfindex]; if v comes after, assign wordlist to splice [halfindex: -1]
+    # if v == word at halfindex, return True, and at the end of the run, return False
+    while True:
+        fullindex = len(t) - 1
+        halfindex = fullindex / 2 if fullindex % 2 == 0 else (fullindex + 1) / 2
+        halfindex = int(halfindex)
+        print(halfindex)
+        if fullindex < 300: 
+            print(t)
+        if v == t[halfindex]:
+            return True
+        elif v < t[halfindex] and fullindex > 1:
+            t = t[0:halfindex]
+        elif v > t[halfindex] and fullindex > 1:
+            t = t[halfindex + 1:]
+        else:
+            print(t)
+            return False
+            
+
+
+
+
+
 # EXERCISE 10.11 - UNFINISHED; UNCHECKED
 # EXERCISE 10.12 - UNFINISHED; UNCHECKED
 
@@ -179,26 +252,35 @@ def birthday_paradox():
 
 
 # DRIVERS
-total = nested_sum([[1, 2], [3], [4, 5, 6]]) # Eoc ex 10.1
-print(total)
 
-cumulist = cumsum([1, 2, 3, 4]) # Eoc ex 10.2
-print(cumulist)
+# total = nested_sum([[1, 2], [3], [4, 5, 6]]) # Eoc ex 10.1
+# print(total)
 
-mid = middle([1, 2, 3, 4]) # Eoc ex 10.3
-print(mid)
+# cumulist = cumsum([1, 2, 3, 4]) # Eoc ex 10.2
+# print(cumulist)
 
-t = [1, 2, 3, 4] # Eoc ex 10.4
-chop(t)
-print(t)
+# mid = middle([1, 2, 3, 4]) # Eoc ex 10.3
+# print(mid)
 
-sortstat = is_sorted(['b', 'a']) # Eoc ex 10.5
-print(sortstat)
+# t = [1, 2, 3, 4] # Eoc ex 10.4
+# chop(t)
+# print(t)
 
-is_anagram('hello', 'jsbin') # Eoc ex 10.6
+# sortstat = is_sorted(['b', 'a']) # Eoc ex 10.5
+# print(sortstat)
 
-dupstat = has_duplicates([1, 5, 3, 4]) # Eoc ex 10.7
-print(dupstat)
+# is_anagram('hello', 'jsbin') # Eoc ex 10.6
 
-chance = birthday_paradox()
-print(chance)
+# dupstat = has_duplicates([1, 5, 3, 4]) # Eoc ex 10.7
+# print(dupstat)
+
+# chance = birthday_paradox() # Eoc ex 10.8
+# print(chance)
+
+fin = open("words.txt") # Eoc ex 10.9
+wl = wordlist_v1(fin)
+# wl = wordlist_v2(fin)
+# print(wl)
+
+bisect_result = in_bisect(wl, 'parkways')
+print(bisect_result)
