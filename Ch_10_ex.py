@@ -205,7 +205,7 @@ def wordlist_v2(file):
         words = words + [elem]
     return words
 
-# EXERCISE 10.10 - UNFINISHED; UNCHECKED
+# EXERCISE 10.10 - FINISHED; UNCHECKED
 def in_bisect(t, v):
     """
     Takes a sorted list and a target value and returns True if the word is in the list and False if not using a bisect search
@@ -222,29 +222,50 @@ def in_bisect(t, v):
     # Compare v to word at halfindex 
     # if v comes before, assign wordlist to splice [0: halfindex]; if v comes after, assign wordlist to splice [halfindex: -1]
     # if v == word at halfindex, return True, and at the end of the run, return False
-    while True:
+    while len(t) > 0:
         fullindex = len(t) - 1
         halfindex = fullindex / 2 if fullindex % 2 == 0 else (fullindex + 1) / 2
         halfindex = int(halfindex)
-        print(halfindex)
-        if fullindex < 300: 
-            print(t)
+        # print(halfindex)
+        # if fullindex < 300: 
+        #     print(t)
         if v == t[halfindex]:
             return True
-        elif v < t[halfindex] and fullindex > 1:
+        elif v < t[halfindex] and fullindex >= 1:
             t = t[0:halfindex]
-        elif v > t[halfindex] and fullindex > 1:
+        elif v > t[halfindex] and fullindex >= 1:
             t = t[halfindex + 1:]
         else:
-            print(t)
+            # print(t)
             return False
-            
-
-
-
+    return False
 
 
 # EXERCISE 10.11 - UNFINISHED; UNCHECKED
+def reverse_pair(t):
+    """
+    Finds all reverse pairs in the wordlist 
+
+    params
+        t (list): wordlist
+    returns
+        None
+    raises
+        None
+    implementation
+        Traverse list and store reverse of current word in a variable
+        Check if that variable appears in the list 
+        Check if that variable has already been in a pair in another list
+        if no, go to the next word. if yes, print both words and add to counter 
+    """
+    
+    for i in t:
+        reverse = i[::-1]
+        if t.index(i) > t.index(reverse):
+            break
+
+
+
 # EXERCISE 10.12 - UNFINISHED; UNCHECKED
 
 
@@ -282,5 +303,7 @@ wl = wordlist_v1(fin)
 # wl = wordlist_v2(fin)
 # print(wl)
 
-bisect_result = in_bisect(wl, 'parkways')
-print(bisect_result)
+# bisect_result = in_bisect(wl, 'parkways')
+# print(bisect_result)
+
+reverse_pair(['hello', 'world'])
