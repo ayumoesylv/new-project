@@ -240,8 +240,7 @@ def in_bisect(t, v):
             return False
     return False
 
-
-# EXERCISE 10.11 - UNFINISHED; UNCHECKED
+# EXERCISE 10.11 - FINISHED; UNCHECKED
 def reverse_pair(t):
     """
     Finds all reverse pairs in the wordlist 
@@ -258,15 +257,21 @@ def reverse_pair(t):
         Check if that variable has already been in a pair in another list
         if no, go to the next word. if yes, print both words and add to counter 
     """
-    
+    counter = 0
     for i in t:
         reverse = i[::-1]
-        if t.index(i) > t.index(reverse):
-            break
-
-
-
+        if reverse not in t:
+            continue
+        elif t.index(i) < t.index(reverse):
+            print(i, reverse)
+            counter += 1
+    print("There have been %d pairs" % counter)
+    return counter
+            
 # EXERCISE 10.12 - UNFINISHED; UNCHECKED
+def interlock(t, *args):
+    
+
 
 
 
@@ -306,4 +311,6 @@ wl = wordlist_v1(fin)
 # bisect_result = in_bisect(wl, 'parkways')
 # print(bisect_result)
 
-reverse_pair(['hello', 'world'])
+# reverse_pair(wl)
+
+interlock(wl, "hello", "wowo")
