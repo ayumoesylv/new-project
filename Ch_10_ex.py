@@ -270,6 +270,17 @@ def reverse_pair(t):
             
 # EXERCISE 10.12 - UNFINISHED; UNCHECKED
 def interlock(t, *args):
+    """
+    Checks if the interlock of two words is in the wordlist provided
+
+    params:
+        t (list): wordlist
+        *args (tuple of strings): words passed in
+    """
+    n = len(args) # n = 2
+    # create interlock
+    
+    
     
 
 
