@@ -269,16 +269,26 @@ def reverse_pair(t):
     return counter
             
 # EXERCISE 10.12 - UNFINISHED; UNCHECKED
-def interlock(t, *args):
+def interlock(t, word1, word2):
     """
     Checks if the interlock of two words is in the wordlist provided
 
     params:
         t (list): wordlist
-        *args (tuple of strings): words passed in
+        word1 (str): first word
+        word2 (str): second word
+    
+    implementation
+    I need two pointers that correspond with indexes of the two words 
+    I need a modulo turn based thing in a loop that selects the pointer and increments it by one to access the elements in the strings
+    Then I need to create a new strng to contain the current variable, and append it (the current variable is the elemnt of the current word at index)
+    If one word's pointer is the same as its length minus 1, then I want to append the rest of the other word to the new list
+    Then I will check if the interlocked word is in the word list t
     """
-    n = len(args) # n = 2
-    # create interlock
+    point_1 = 0
+    point_2 = 0
+    new_string = '' 
+    
     
     
     
